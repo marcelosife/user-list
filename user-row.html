@@ -1,0 +1,16 @@
+<tr ng-repeat="user in pagedItems[currentPage] | orderBy:sort.sortingOrder:sort.reverse">
+<td ><input type='checkbox' name='selectdel' ng-click='selectDelete(user)' id="{{'check' + user.id}}"></td>
+<td>{{user.id}}</td>
+<td>{{user.firstName}}</td>
+<td>{{user.lastName}}</td>
+<td>{{user.country}}</td>
+<td>{{user.email}}</td>
+<td>{{user.dateOfBirth | date:'medium'}}</td>
+<td>
+  <button type="button" class="btn btn-info btn-sm" ng-click="viewUser(user)" data-toggle="modal" data-target="#myModal"><i class="icon-search"></i></button>
+  <a  ui-sref="users.edit({ id: user.id, user:user, users:users })">
+    <button type="button" class="btn btn-success btn-sm" ><i class="icon-edit"></i></button>
+  </a>
+  <button type="button" class="btn btn-danger btn-sm" ng-click="deleteUser(user)"><i class="icon-trash"></i></button>
+</td>
+</tr>
